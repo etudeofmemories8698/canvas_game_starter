@@ -91,7 +91,8 @@ function loadImages() {
 
   myMusic.play();
 
-  //start btn
+  //define distance
+  let distance = 0;
 }
 
 let keysDown = {};
@@ -311,7 +312,9 @@ function moveMonster(dir) {
 
 function movingMonsters() {
 
-  let distance = Math.sqrt(Math.pow((monsterX - heroX), 2) + Math.pow((monsterY - heroY), 2));
+  //find distance between hero and monster by math.
+
+  distance = Math.sqrt(Math.pow((monsterX - heroX), 2) + Math.pow((monsterY - heroY), 2));
 
   //If monster get close to hero
 
@@ -331,19 +334,19 @@ function movingMonsters() {
   //If monster hit the wall
 
   if (monsterX >= canvas.width - 32) {
-    direction = getRandomIntFromArray([1, 3, 4, 7, 8]);
+    direction = getRandomIntFromArray([4, 7, 8]);
     bouncingSound.play();
   }
   if (monsterX <= 0) {
-    direction = getRandomIntFromArray([1, 2, 3, 5, 6]);
+    direction = getRandomIntFromArray([2, 5, 6]);
     bouncingSound.play();
   }
   if (monsterY >= canvas.height - 63) {
-    direction = getRandomIntFromArray([1, 2, 4, 5, 8]);
+    direction = getRandomIntFromArray([1, 5, 8]);
     bouncingSound.play();
   }
   if (monsterY <= 0) {
-    direction = getRandomIntFromArray([2, 3, 4, 6, 7]);
+    direction = getRandomIntFromArray([3, 6, 7]);
     bouncingSound.play();
   }
 

@@ -4,7 +4,6 @@
   using graphics purchased from vectorstock.com
 */
 
-
 let canvas;
 let ctx;
 

@@ -386,6 +386,8 @@ function getBestScore(arr) {
   bestScore =  Math.min(...arr);
 }
 
+//This function make the restart button work
+
 document.addEventListener("click", function (e) {
   const XY = getXY(canvas, e)
   if (ctx.isPointInPath(path, XY.x, XY.y)) {

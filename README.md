@@ -1,4 +1,4 @@
-# CoderSchool FTW - * Penny the wise, the Cats Chaser *
+# CoderSchool FTW - * Penny the wise, the Cat Chaser *
 
 Created with love by: Manh Hung
   
@@ -8,11 +8,13 @@ This is a simple Canvas-based game that requires a solid understanding of the pr
 
 Here's a walkthrough of implemented user stories.
 
-![](http://g.recordit.co/cURdPMSHT2.gif)
+```
+<img src='http://g.recordit.co/RO8tnr8yom.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+```
 
 ## Netlify link
 
-
+https://cat-chaser-game.netlify.com/
 
 ## Code Reviews
 
@@ -29,7 +31,7 @@ This code was reviewed by @username and @otherusername.
 - [x] The monster is placed at a random location within the game boundaries.
 - [x] The user can catch a monster by moving their character to the same location as a monster.
 - [x] When the user catches a monster, a new monster is placed randomly upon the screen.
-- [x] The user can see the numbers of monsters she has caught. Every time she catches a monster, the number should increment by one.
+- [x] The user can see the numbers of monsters she has caught. Every time she catches a monster, the number should increment by one. 
 - [x] The game ends when the user has caught 20 monsters. The total time elapsed is displayed upon game completion, in seconds.
 - [x] The user can access this game from the internet (e.g. using Netlify).
 - [x] The code has been reviewed by at least one other person, using Pull Requests on GitHub.
@@ -48,14 +50,13 @@ This code was reviewed by @username and @otherusername.
 
 The following **additional** features are implemented:
 
-- [x] Monster get smarter it can avoid hero.
-
+* [x] Monsters can move around and avoid hero.
 
 ## Time Spent and Lessons Learned
 
 Time spent: **24** hours spent in total.
 
-* 
+Describe any challenges encountered while building the app.
 
 ## License
 

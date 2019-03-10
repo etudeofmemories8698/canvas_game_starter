@@ -52,6 +52,7 @@ const path = new Path2D()
 path.rect(canvas.width / 2 - 50, canvas.height / 2 + 15, 100, 35)
 path.closePath()
 
+
 function loadImages() {
   //start counting time
   startTime = new Date();
@@ -114,6 +115,10 @@ function setupKeyboardListeners() {
 
 
 let update = function () {
+  // Update the time.
+  elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+
+
   if (38 in keysDown) { // Player is holding up key
     heroY -= 5;
   }
@@ -221,6 +226,7 @@ var render = function () {
     ctx.fillStyle = "black"
     ctx.fillText("Restart", canvas.width / 2, canvas.height / 2 + 40)
   }
+  
 };
 
 

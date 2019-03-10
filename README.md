@@ -8,9 +8,7 @@ This is a simple Canvas-based game that requires a solid understanding of the pr
 
 Here's a walkthrough of implemented user stories.
 
-```
-<img src='http://http://g.recordit.co/cURdPMSHT2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-```
+![](http://g.recordit.co/cURdPMSHT2.gif)
 
 ## Netlify link
 

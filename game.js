@@ -151,6 +151,8 @@ let musicStarted = false;
  * 
  * This is just to let JavaScript know when the user has pressed a key.
 */
+
+
 let keysDown = {};
 function setupKeyboardListeners() {
   // Check for keys pressed where key represents the keycode captured
@@ -187,11 +189,7 @@ let update = function () {
   if (39 in keysDown) { // Player is holding right key
     heroX += 5;
   }
-  function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
-  }
+ 
 
   // if Monster hits wall (monsterX > canvas.width)
   if (monsterX + 60 > canvas.width || monsterX <= 0) {
@@ -215,16 +213,9 @@ let update = function () {
   ) {
     counter++;
 
-
-
     // Pick a new location for the monster.
-    // Note: Change this to place the monster at a new, random location.
-    function getRandomInt(min, max) {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
-    }
-
+    // Note: Change this to place the monster at a new, random location
+    
     monsterX = getRandomInt(0, 400);
     monsterY = getRandomInt(0, 400);
   }
@@ -333,7 +324,7 @@ var render = function () {
   }
 
   if (counter == 20) {
-    ctx.fillText(`Winner`, 170, 240);
+    ctx.fillText("Winner", 170, 240);
     event.stopPropagation();
   }
 
@@ -350,7 +341,6 @@ var render = function () {
  * render (based on the state of our game, draw the right things)
  */
 var main = function () {
-
 
   myMusic.play(); // fix later
   update();

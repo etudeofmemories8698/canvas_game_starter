@@ -2,8 +2,7 @@
   Code modified from:
   http://www.lostdecadegames.com/how-to-make-a-simple-html5-canvas-game/
   using graphics purchased from vectorstock.com
-*//
-
+*/
 
 let canvas;
 let ctx;

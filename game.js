@@ -32,10 +32,9 @@ function sound(src) {
   }
 }
 
-// mySound= new sound("MarioBros.mp4");
+
 myMusic = new sound("MarioBros.mp4");
-// myMusic.load();
-// myMusic.play();
+
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -323,11 +322,10 @@ var render = function () {
   gradient.addColorStop("0", " magenta");
   gradient.addColorStop("0.5", "blue");
   gradient.addColorStop("1.0", "red");
+
   // Fill with gradient
   ctx.fillStyle = gradient;
 
-  // let gameOver = counter >= 5;
-  // let winner= counter==20;
   if (gameOver) {
     ctx.fillText(`GAME OVER`, 170, 240);
     ctx.fillText(`Score:${counter}`, 200, 190);
@@ -357,8 +355,10 @@ var main = function () {
   myMusic.play(); // fix later
   update();
   render();
+
   // Request to do this again ASAP. This is a special method
   // for web browsers. 
+  
   if (counter >= 20) {
     ctx.fillText(`Well Done`, 170, 240);
     ctx.fillText(counter, 100, 100);

@@ -51,7 +51,6 @@ const path = new Path2D()
 path.rect(canvas.width / 2 - 50, canvas.height / 2 + 15, 100, 35)
 path.closePath()
 
-
 function loadImages() {
   //start counting time
   startTime = new Date();
@@ -93,8 +92,6 @@ function loadImages() {
   myMusic.play();
 
   //start btn
-
-
 }
 
 let keysDown = {};
@@ -157,10 +154,8 @@ let update = function () {
     //Increase score
 
     if (monstersCaught < 5) {
-
       ++monstersCaught;
       finished = false;
-
     }
 
     if (monstersCaught == 5) {
@@ -227,7 +222,6 @@ var render = function () {
   }
   
 };
-
 
 var main = function () {
 

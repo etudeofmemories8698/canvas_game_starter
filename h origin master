@@ -1,0 +1,147 @@
+[33mcommit 893093c834cfce2832796e3e2e9c96e93a4fd3f3[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Merge: 99dfc21 2d08b06
+Author: Manh Hung <etudeofmemories8698@gmail.com>
+Date:   Mon Mar 11 09:10:38 2019 +0700
+
+    :wqt push origin master
+    Merge branch 'feature/boostingSeed'
+
+[33mcommit 2d08b063c6d13734aebf90dce9eb41664f469591[m[33m ([m[1;31morigin/feature/boostingSeed[m[33m, [m[1;32mfeature/boostingSeed[m[33m)[m
+Author: Manh Hung <etudeofmemories8698@gmail.com>
+Date:   Mon Mar 11 09:07:25 2019 +0700
+
+    fix hero when boosting/ delete unused lines in game.js
+
+[33mcommit 7c960576bee2e1aeaf926878cb608623696c8946[m
+Author: Manh Hung <etudeofmemories8698@gmail.com>
+Date:   Mon Mar 11 08:58:44 2019 +0700
+
+    boostingSeed change image/ hero change image/ random boosting speed
+
+[33mcommit 46c71ccc3b9b4e84cf415ab6d2fb5856c091a96b[m
+Author: Manh Hung <etudeofmemories8698@gmail.com>
+Date:   Sun Mar 10 23:50:44 2019 +0700
+
+    finish raw boosting seed
+
+[33mcommit 99dfc21043490196bb5fab5e24c4cea640b2882c[m
+Author: Manh Hung <etudeofmemories8698@gmail.com>
+Date:   Sun Mar 10 21:44:19 2019 +0700
+
+    delete some unnecessary lines
+
+[33mcommit 2f469669d2f7a1ef9403d07ab4f53b1a8c24db92[m
+Author: Manh Hung <etudeofmemories8698@gmail.com>
+Date:   Sun Mar 10 20:44:39 2019 +0700
+
+    edit readme to add code reviewer
+
+[33mcommit b83b358531508f33574cee03b17922ccac396354[m
+Author: cloudstar91 <natalie.hoang91@gmail.com>
+Date:   Sun Mar 10 20:36:48 2019 +0700
+
+    Update index.html (#3)
+    
+    The HTML quite simple but it matches user requirements.
+
+[33mcommit c882a2f0dd2a0f423eef8f6e7e4fce505e05c822[m
+Author: cloudstar91 <natalie.hoang91@gmail.com>
+Date:   Sun Mar 10 20:36:36 2019 +0700
+
+    Update README.md (#6)
+
+[33mcommit 52943050f2a7dc97eea025a3bf60346267318bf5[m
+Author: cloudstar91 <natalie.hoang91@gmail.com>
+Date:   Sun Mar 10 20:36:19 2019 +0700
+
+    Update game.js (#5)
+    
+    - The structure is clear, global variables almost have been declared on top.
+    -Functions go with the flow; with clear comments on each function easy to understand.
+    - The speed of hero should be faster.
+    - Should have buttons to turn on/off sounds, sometimes it's annoying.
+    - The game works well.
+    -Design is cute
+
+[33mcommit bf542f6ea734f598862fcdb55401f014d08884ee[m
+Author: cloudstar91 <natalie.hoang91@gmail.com>
+Date:   Sun Mar 10 19:49:48 2019 +0700
+
+    Update README.md
+
+[33mcommit fbc662605fb05069acd04094e495c9b8262eb809[m
+Author: Manh Hung <etudeofmemories8698@gmail.com>
+Date:   Sun Mar 10 18:37:45 2019 +0700
+
+    edit html file to remove unused lines
+
+[33mcommit d6e3a5197efe498675991c1adaa490c23e7d1659[m
+Merge: 1a2b1fe 9e634c4
+Author: Hasan Armstrong <hasan_armstrong@hotmail.co.uk>
+Date:   Sun Mar 10 18:31:39 2019 +0700
+
+    Merge pull request #2 from HasanArmstrong/patch-1
+    
+    Code review
+
+[33mcommit 9e634c44c778980358d494b2b7ca493de628729d[m
+Author: Hasan Armstrong <hasan_armstrong@hotmail.co.uk>
+Date:   Sun Mar 10 18:03:01 2019 +0700
+
+    Code review
+
+[33mcommit 1a2b1fe49a7e0993178953884e6a97ee4506070e[m
+Author: Manh Hung <etudeofmemories8698@gmail.com>
+Date:   Sun Mar 10 16:09:39 2019 +0700
+
+    edit readme
+
+[33mcommit 714b515f3f574f9a17df31e4d6f140bcad79cab2[m
+Merge: ecc44fe 7e41b0b
+Author: etudeofmemories8698 <etudeofmemories8698@gmail.com>
+Date:   Sun Mar 10 15:44:13 2019 +0700
+
+    Merge pull request #1 from etudeofmemories8698/features/required_user_stories
+    
+    complete all required user stories
+    
+    almost complete all optional user stories
+
+[33mcommit 7e41b0b954ebc2aa9455885b9ee211b4eed143aa[m[33m ([m[1;31morigin/features/required_user_stories[m[33m)[m
+Merge: 1282418 9ba12fc
+Author: etudeofmemories8698 <etudeofmemories8698@gmail.com>
+Date:   Sun Mar 10 15:41:24 2019 +0700
+
+    Merge branch 'master' into features/required_user_stories
+
+[33mcommit 12824180940cac71e4632d1daecb9933b8e24c70[m[33m ([m[1;32mfeatures/required_user_stories[m[33m)[m
+Author: Manh Hung <etudeofmemories8698@gmail.com>
+Date:   Sun Mar 10 15:30:22 2019 +0700
+
+    all in one, i forgot to push regularly
+
+[33mcommit 9ba12fcd33c560de1b60fac92fed19bfa53af341[m
+Author: Charles Lee <chug2k@gmail.com>
+Date:   Fri Mar 8 17:07:44 2019 +0700
+
+    Adding a timer based on Date.now. (#7)
+
+[33mcommit ef62f6f767141cdd8b49e65d23552495a7ad525d[m
+Author: khoi <6994441+khoi@users.noreply.github.com>
+Date:   Thu Mar 7 14:44:12 2019 +0700
+
+    update preview image (#2)
+    
+    thanks khoi!
+
+[33mcommit ecc44fe7fd276e03f296f6bc80c2bb79be121f81[m[33m ([m[1;31morigin/dev[m[33m)[m
+Author: Charles Lee <chug2k@gmail.com>
+Date:   Thu Mar 7 12:29:02 2019 +0700
+
+    Adding requirements to have code reviews in this assignment. (#1)
+
+[33mcommit 5e3673ebbdef5cdb1b88b04c7184fc6b04ddb8a5[m
+Author: Charles Lee <chug2k@gmail.com>
+Date:   Sun Mar 3 15:40:56 2019 +0700
+
+    Initial commit, with README.md and boilerplate code setup.

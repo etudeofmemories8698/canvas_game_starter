@@ -13,8 +13,8 @@ canvas.width = 960;
 canvas.height = 540;
 document.body.appendChild(canvas);
 
-let bgReady, heroReady, monsterReady;
-let bgImage, heroImage, monsterImage;
+let bgReady, heroReady, monsterReady, boostingSeedReady;
+let bgImage, heroImage, monsterImage, boostingSeedImage;
 
 //Define monsters and hero position
 
@@ -23,6 +23,9 @@ let heroY = canvas.height / 2;
 
 let monsterX = getRandomInt(32, canvas.width - 32);
 let monsterY = getRandomInt(32, canvas.height - 32);
+
+let seedX = getRandomInt(32, canvas.width - 32);
+let seedY = getRandomInt(32, canvas.height - 32);
 
 //Monsters caught
 let monstersCaught = 0;
@@ -39,6 +42,8 @@ let myMusic;
 let mySound;
 let bouncingSound;
 let gameoverSound;
+let boostingSound;
+let toxicSound;
 
 //monsters direction
 let direction = getRandomIntFromArray([1, 2, 3, 4, 5, 6, 7, 8]);
@@ -50,6 +55,16 @@ let finished = false;
 const path = new Path2D()
 path.rect(canvas.width / 2 - 50, canvas.height / 2 + 15, 100, 35)
 path.closePath()
+
+//hero speed
+let heroSpeed = 6;
+let boostingHeroSpeed = [1, 3, 9, 11];
+
+//counter for boosting seed
+let counter = 6;
+
+//boosting timer
+let boostingSpeed;
 
 function loadImages() {
   //start counting time
@@ -76,6 +91,15 @@ function loadImages() {
 
   monsterImage.src = `images/monster${getRandomInt(1, 7)}.png`;
 
+  //boosting seeds image
+  boostingSeedImage = new Image();
+  boostingSeedImage.onload = function () {
+    // show the seeds image
+    boostingSeedReady = true;
+  };
+
+  boostingSeedImage.src = `images/boostingSeed${getRandomInt(1, 4)}.png`;
+
   //sound when collide
 
   mySound = new sound("musics/collide.wav");
@@ -89,10 +113,17 @@ function loadImages() {
   //gameover sound
   gameoverSound = new sound("musics/game_over.mp3")
 
+  //boosting sound
+  boostingSound = new sound("musics/boosting.wav")
+
   myMusic.play();
 
   //define distance
   let distance = 0;
+
+  //load boosting seed timer
+  boostingTimer();
+
 }
 
 let keysDown = {};
@@ -117,16 +148,16 @@ let update = function () {
 
 
   if (38 in keysDown) { // Player is holding up key
-    heroY -= 5;
+    heroY -= heroSpeed;
   }
   if (40 in keysDown) { // Player is holding down key
-    heroY += 5;
+    heroY += heroSpeed;
   }
   if (37 in keysDown) { // Player is holding left key
-    heroX -= 5;
+    heroX -= heroSpeed;
   }
   if (39 in keysDown) { // Player is holding right key
-    heroX += 5;
+    heroX += heroSpeed;
   }
 
   heroX = Math.min(canvas.width - 32, heroX);
@@ -181,7 +212,64 @@ let update = function () {
     mySound.play();
 
   }
+  console.log(heroSpeed);
+
+  //check if hero has ate the boosting seed
+  if (
+    heroX <= (seedX + 24) &&
+    seedX <= (heroX + 24) &&
+    heroY <= (seedY + 24) &&
+    seedY <= (heroY + 24)
+  ) {
+
+    //hide seed
+    boostingSeedReady = true;
+    seedX = -25;
+    seedY = -25;
+
+    //start boosting speed for 2s
+    heroSpeed = boostingHeroSpeed[getRandomInt(0, boostingHeroSpeed.length - 1)];
+    
+    if (heroSpeed < 6) {
+      heroImage.src = "images/hero3.png";
+    } else if (heroSpeed > 6) {
+      heroImage.src = "images/hero2.png";
+    }
+
+    //Change monster
+    boostingSeedImage.src = `images/boostingSeed${getRandomInt(1, 4)}.png`;
+
+    //play sound when ate the seed
+    boostingSound.play();
+  }
 };
+
+
+//This function set timer for boosting seeds
+function boostingTimer() {
+  boostingSpeed = setInterval(function () {
+
+    if (counter <= 2) {
+      heroSpeed = 6;
+      seedX = -25;
+      seedY = -25;
+      boostingSeedReady = false;
+
+      //reset hero Image
+      heroImage.src = "images/hero.png";
+    };
+    if (counter <= 0) {
+      clearInterval(boostingSpeed);
+
+      seedX = getRandomInt(24, canvas.width - 24);
+      seedY = getRandomInt(24, canvas.height - 24);
+      boostingSeedReady = true;
+      counter = 6;
+      boostingTimer();
+    };
+    counter--;
+  }, 1000);
+}
 
 
 var render = function () {
@@ -194,6 +282,10 @@ var render = function () {
   if (monsterReady) {
     ctx.drawImage(monsterImage, monsterX, monsterY);
   }
+  if (boostingSeedReady) {
+    ctx.drawImage(boostingSeedImage, seedX, seedY);
+  }
+
 
   //Display scores
   ctx.fillStyle = "#ffffff";
@@ -209,7 +301,12 @@ var render = function () {
     ctx.textAlign = "center";
     ctx.fillText("Your best time score: " + bestScore + " (s)", canvas.width / 2, canvas.height / 2 - 10);
 
+    //hide hero and boostingSeed when finished/ but left the cat boucing 
     heroReady = false;
+    boostingSeedReady = false;
+    clearInterval(boostingSpeed);
+
+    
 
     //restart button
 
@@ -221,7 +318,7 @@ var render = function () {
     ctx.fillStyle = "black"
     ctx.fillText("Restart", canvas.width / 2, canvas.height / 2 + 40)
   }
-  
+
 };
 
 var main = function () {
@@ -379,7 +476,7 @@ function getXY(canvas, event) {
 }
 
 function getBestScore(arr) {
-  bestScore =  Math.min(...arr);
+  bestScore = Math.min(...arr);
 }
 
 //This function make the restart button work
@@ -394,6 +491,9 @@ document.addEventListener("click", function (e) {
     heroReady = true;
     finished = false;
     resetPos();
+
+    clearInterval(boostingSpeed);
+    boostingTimer();
 
   }
 

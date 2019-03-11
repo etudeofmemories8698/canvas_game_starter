@@ -212,7 +212,6 @@ let update = function () {
     mySound.play();
 
   }
-  console.log(heroSpeed);
 
   //check if hero has ate the boosting seed
   if (
@@ -236,7 +235,7 @@ let update = function () {
       heroImage.src = "images/hero2.png";
     }
 
-    //Change monster
+    //Change boostingSed image
     boostingSeedImage.src = `images/boostingSeed${getRandomInt(1, 4)}.png`;
 
     //play sound when ate the seed
@@ -306,8 +305,6 @@ var render = function () {
     boostingSeedReady = false;
     clearInterval(boostingSpeed);
 
-    
-
     //restart button
 
     ctx.fillStyle = "#FFFFFF"
@@ -332,7 +329,6 @@ var main = function () {
 }
 
 //this function exist to get sound
-
 function sound(src) {
 
   this.sound = document.createElement("audio");
@@ -351,7 +347,6 @@ function sound(src) {
 }
 
 //Time played each round
-
 function getTimePlayed() {
   endTime = new Date();
   timePlayed = Math.floor((endTime.getTime() - startTime.getTime()) / 1000);
@@ -359,7 +354,6 @@ function getTimePlayed() {
 }
 
 //Generate random interger number
-
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -367,13 +361,11 @@ function getRandomInt(min, max) {
 }
 
 //Generate random item from Arr
-
 function getRandomIntFromArray(arr) {
   return arr[getRandomInt(0, arr.length - 1)];
 }
 
 //Move the monster
-
 function moveMonster(dir) {
 
   if (dir == 1) { //up
@@ -410,11 +402,9 @@ function moveMonster(dir) {
 function movingMonsters() {
 
   //find distance between hero and monster by math.
-
   distance = Math.sqrt(Math.pow((monsterX - heroX), 2) + Math.pow((monsterY - heroY), 2));
 
   //If monster get close to hero
-
   if ((distance < 80) && (monsterX <= heroX) && (monsterY <= heroY)) {
     direction = getRandomIntFromArray([1, 4, 8]);
   }
@@ -429,7 +419,6 @@ function movingMonsters() {
   }
 
   //If monster hit the wall
-
   if (monsterX >= canvas.width - 32) {
     direction = getRandomIntFromArray([4, 7, 8]);
     bouncingSound.play();
@@ -448,7 +437,6 @@ function movingMonsters() {
   }
 
   //After having the direction needed, move the monster
-
   moveMonster(direction);
 
 }
@@ -464,7 +452,6 @@ function resetPos() {
 }
 
 //Restart button
-
 function getXY(canvas, event) {
   const rect = canvas.getBoundingClientRect()
   const y = event.clientY - rect.top
@@ -480,7 +467,6 @@ function getBestScore(arr) {
 }
 
 //This function make the restart button work
-
 document.addEventListener("click", function (e) {
   const XY = getXY(canvas, e)
   if (ctx.isPointInPath(path, XY.x, XY.y)) {

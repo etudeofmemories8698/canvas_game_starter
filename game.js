@@ -58,10 +58,12 @@ path.closePath()
 
 //hero speed
 let heroSpeed = 6;
+let boostingHeroSpeed = [1, 3, 9, 11];
 
 //counter for boosting seed
 let counter = 6;
 
+//boosting timer
 let boostingSpeed;
 
 function loadImages() {
@@ -96,7 +98,7 @@ function loadImages() {
     boostingSeedReady = true;
   };
 
-  boostingSeedImage.src = "images/boostingSeed.png";
+  boostingSeedImage.src = `images/boostingSeed${getRandomInt(1, 4)}.png`;
 
   //sound when collide
 
@@ -119,7 +121,9 @@ function loadImages() {
   //define distance
   let distance = 0;
 
+  //load boosting seed timer
   boostingTimer();
+
 }
 
 let keysDown = {};
@@ -217,32 +221,53 @@ let update = function () {
     heroY <= (seedY + 24) &&
     seedY <= (heroY + 24)
   ) {
-    // boostingTimer();
+
+    //hide seed
+    boostingSeedReady = true;
+    seedX = -25;
+    seedY = -25;
+
+    //start boosting speed for 2s
+    heroSpeed = boostingHeroSpeed[getRandomInt(0, boostingHeroSpeed.length - 1)];
+    
+    if (heroSpeed < 6) {
+      heroImage.src = "images/hero3.png";
+    } else if (heroSpeed > 6) {
+      heroImage.src = "images/hero2.png";
+    }
+
+    //Change monster
+    boostingSeedImage.src = `images/boostingSeed${getRandomInt(1, 4)}.png`;
+
+    //play sound when ate the seed
     boostingSound.play();
-    heroSpeed = 9;
-    seedX = 0;
-    seedY = 0;
-    boostingSeedReady = false;
   }
 };
 
+
+//This function set timer for boosting seeds
 function boostingTimer() {
   boostingSpeed = setInterval(function () {
-    counter--;
-    if (counter < 4) {
+
+    if (counter <= 2) {
       heroSpeed = 6;
-      seedX = 0;
-      seedY = 0;
+      seedX = -25;
+      seedY = -25;
       boostingSeedReady = false;
+
+      //reset hero Image
+      heroImage.src = "images/hero.png";
     };
     if (counter <= 0) {
       clearInterval(boostingSpeed);
+
       seedX = getRandomInt(24, canvas.width - 24);
       seedY = getRandomInt(24, canvas.height - 24);
       boostingSeedReady = true;
-      counter = 5;
+      counter = 6;
       boostingTimer();
     };
+    counter--;
   }, 1000);
 }
 
@@ -280,6 +305,8 @@ var render = function () {
     heroReady = false;
     boostingSeedReady = false;
     clearInterval(boostingSpeed);
+
+    
 
     //restart button
 
@@ -464,6 +491,8 @@ document.addEventListener("click", function (e) {
     heroReady = true;
     finished = false;
     resetPos();
+
+    clearInterval(boostingSpeed);
     boostingTimer();
 
   }

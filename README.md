@@ -51,6 +51,7 @@ This code was reviewed by @cloudstar91 and @HasanArmstrong.
 The following **additional** features are implemented:
 
 * [x] Monsters can move around and avoid hero.
+* [x] Hero can eat boosting seed to have random speed (slow down or speed up)
 
 ## Time Spent and Lessons Learned
 

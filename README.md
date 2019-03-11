@@ -22,6 +22,7 @@ This code was reviewed by @cloudstar91 and @HasanArmstrong.
 
 * [Link to PR #5](https://github.com/etudeofmemories8698/canvas_game_starter/commit/52943050f2a7dc97eea025a3bf60346267318bf5) - reviewed by @cloudstar91
 * [Link to PR #2](https://github.com/etudeofmemories8698/canvas_game_starter/commit/d6e3a5197efe498675991c1adaa490c23e7d1659) - reviewed by @HasanArmstrong   
+* [Link to PR #]() - reviewed by @lvltcode
 
 
 ## Required User Stories
